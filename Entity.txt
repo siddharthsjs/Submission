@@ -1,0 +1,17 @@
+Entities:
+
+* User
+* Role
+* Permission
+* UserRole
+* RolePermission
+* Bank
+* Branch
+* Account *(abstract)*
+* SavingsAccount
+* CurrentAccount
+* TermDepositAccount
+* AccountOperator
+
+In progress 
+
