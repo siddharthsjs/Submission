@@ -7,7 +7,7 @@ Entities:
 * RolePermission
 * Bank
 * Branch
-* Account *(abstract)*
+* Account 
 * SavingsAccount
 * CurrentAccount
 * TermDepositAccount
