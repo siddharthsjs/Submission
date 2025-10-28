@@ -1,0 +1,37 @@
+Assumptions:
+
+1. DOB VALIDATION
+   Assumption: A user's date of birth cannot be in the future or older than 120 years.
+   Reason: Invalid DOBs (like 2050) would cause validation errors and logic failures.
+
+2. SOFT DELETE POLICY
+   Assumption: User and Account deletions are logical (IsDeleted = true), not physical.
+   Reason: Hard deletes could break audit trails and foreign key relationships.
+
+3. ACCOUNT OWNERSHIP RULE
+   Assumption: A user can only view their own accounts, except branch managers who can view accounts in their branch.
+   Reason: Prevents unauthorized access and enforces data security.
+
+4. TERM DEPOSIT TYPE
+   Assumption: Term Deposits are treated as a type of account with MaturityDate and InterestRate fields.
+   Reason: Ensures consistent handling within the account hierarchy.
+
+5. UNIQUE IDENTIFIERS
+   Assumption: Email (User) and AccountNumber (Account) are globally unique.
+   Reason: Prevents duplication and authentication conflicts.
+
+6. AUTHENTICATION METHOD
+   Assumption: System uses JWT authentication, with RS256 (private/public keys) for token security.
+   Reason: Defines how roles and permissions are enforced.
+
+7. BRANCH MANAGER RELATIONSHIP
+   Assumption: Each branch has exactly one Branch Manager (Bank User with Manager role).
+   Reason: Required for correct authorization of “view accounts in my branch”.
+
+8. MULTI-CURRENCY HANDLING
+   Assumption: Accounts use ISO 4217 currency codes (e.g., INR, USD) and do not allow currency conversion.
+   Reason: Avoids inaccurate balance calculations across currencies.
+
+9. TRANSACTION ATOMICITY
+   Assumption: Deposit and withdrawal operations are performed as atomic DB transactions.
+   Reason: Ensures balance consistency and prevents partial updates.

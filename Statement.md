@@ -1,0 +1,62 @@
+Simple User and Account Management System
+
+
+
+1\. Problem Understanding:
+
+
+
+Objective:
+
+
+
+To design and implement a User and Account Management System for a banking-like environment that allows user registration, account management across multiple banks and branches, role-based access control, and secure authentication.
+
+
+
+The system must support multiple user types, account types, operations (deposit, withdraw, close), and permissions with clear business rules.
+
+
+
+2\. Explicit Requirements
+
+
+
+* Users:There are two types of users — Normal User and Bank User.
+* User Validation:The user’s date of birth (DOB) cannot be in the future (for example, the year 2050).
+* Accounts: A user can have multiple accounts across multiple banks.
+* Banks and Branches:Each bank can have multiple branches.
+* Account Types:The system must support Saving, Current, and Term Deposit accounts.
+* Account Operators:Accounts can be operated by minors and/or by someone holding Power of Attorney.
+* Operations:Users can withdraw, deposit, close accounts, and check balances — all within defined business rules.
+* Roles and Permissions:Every user has specific roles and permissions that control who can create, delete, read, and update users or accounts.
+* Multi-currency Support:Accounts can be maintained in multiple currencies (for example, for NRI users).
+* Process Steps:The overall process includes defining entities, creating migrations, populating data, documenting the system, and building REST APIs for /banks, /accounts, and /users.
+* APIs:The system must provide CRUD operations for /users and /accounts, with appropriate access control rules.
+* Authentication:Implement a login system with role mapping. Optionally, use JWT authentication with RS256 public/private key encryption.
+* Documentation:Use Swagger for documentation and publish the code on a public GitHub repository without including bin, obj, or executable files.
+
+
+
+3\. Implicit Requirements:
+
+
+
+* Data Validity:DOB must be realistic (not older than 120 years). Email and phone number should be unique for each user.
+* Soft Delete: When users or accounts are deleted, it should be a logical deletion (inactive flag) instead of a hard delete.
+* Term Deposit:Term Deposits are specialized accounts that include additional fields such as maturity date and interest rate.
+* Access Control:Only authorized roles can create or delete entities. Normal users can read their own data, while broader access (like to branch accounts) is restricted.
+* Branch Access:Branch managers can view accounts within their branch. Normal users can only view their own accounts.
+* Transaction Limits:Deposits and withdrawals are subject to predefined limits, such as daily or per-transaction caps.
+* NRI Accounts:Multi-currency handling implies either exchange rate conversions or restrictions on currency types.
+* System Design:The system should follow a layered architecture — Entities, Data Access, Services, and Controllers.
+* Auditability:All key actions (create, update, delete) must be logged along with the acting user and timestamp.
+* Extensibility:The system should be flexible enough to support new account types or user roles without major database schema changes.
+* Security:Passwords must be hashed. JWT tokens must be validated, and no sensitive data should be stored in plaintext.
+* Error Handling: Use proper HTTP status codes, such as 400 (Bad Request), 401 (Unauthorized), 403 (Forbidden), and 404 (Not Found).
+* Swagger Documentation:Each API endpoint must include detailed Swagger documentation with request/response examples and authentication requirements.
+
+
+
+
+
