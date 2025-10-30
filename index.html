@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- HEAD : BEGIN -->
+    <head>
+        <title>My Webpage</title>
+		
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<!-- EXTERNAL STYLE SHEET -->
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+		<!-- EXTERNAL FONT -->
+    </head>
+    <!-- HEAD : END -->
+
+    <!-- BODY : BEGIN -->
+    <body>
+        <!-- HEADER SECTION : BEGIN -->
+        <header>
+            <!-- LOGO -->
+            <h3>Logo</h3>
+
+            <!-- MESSAGE -->
+            <h1>My name is Sid!</h1>
+            
+            <!-- BUTTON -->
+            <a href="#contact">Say Hello!</a>
+
+        </header>
+
+        <section id="about">
+            <h2>About me</h2>
+            <p>The names is Siddharth a Tech Enthusiast and a Nature Love. </p>
+        </section>
+        <div id="contact">
+            <h2>Impressed?<br>Get in touch!</h2>
+            <!-- FORM -->
+            <form method="post" action="php/contactScript.php">
+                <input type="text" name="First Name" placeholder="First Name">
+                <input type="text" name="Last Name" placeholder="Last Name">
+                <input type="email" name="Email" placeholder="Email">
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <!-- FORM -->
+        </div>
+        <div class="gallery">
+            <h2>Some shots from my last trip!</h2>
+            <div>
+                <div>
+                    <img src="https://unsplash.it/300/200?image=1015" alt="Mountain">
+                    <img src="https://unsplash.it/300/200?image=1021" alt="Forest">
+                    <img src="https://unsplash.it/300/200?image=1036" alt="Lake">
+                  </div>
+                  
+                  <div>
+                    <img src="https://unsplash.it/600/200?image=1043" alt="River Landscape">
+                    <img src="https://unsplash.it/300/200?image=1050" alt="Sunset">
+              
+                  </div>
+                  
+            </div>
+        </div>
+  
+        <hr>
+
+        <div id="newsletter">
+            <h2>Stay connected. Sign up to my <br><span>Free newsletter</span></h2>
+            <div class="newsletter-input">
+                <input type="text" name="Newsletter">
+            </div>
+            <div>
+                <a type="submit">Subscribe</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>Copyright 2017 - All rights reserved</p>
+        </footer>
+      
+    </body>
+</html>
