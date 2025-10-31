@@ -80,6 +80,12 @@ namespace BankCustomerAPI.Data
                 .HasOne(rp => rp.Permission)
                 .WithMany(p => p.RolePermissions)
                 .HasForeignKey(rp => rp.PermissionId);
+            modelBuilder.Entity<Role>().HasData(
+    new Role { RoleId = 1, RoleName = "Admin" },
+    new Role { RoleId = 2, RoleName = "User" },
+    new Role { RoleId = 3, RoleName = "BranchManager" }
+);
+
             modelBuilder.Entity<Permission>().HasData(
     new Permission { PermissionId = 1, PermissionName = "CreateUser" },
     new Permission { PermissionId = 2, PermissionName = "DeleteUser" },
@@ -152,6 +158,37 @@ namespace BankCustomerAPI.Data
         UserType = "Normal"
     }
 );
+            modelBuilder.Entity<User>().HasData(
+    new User
+    {
+        UserId = 1,
+        FirstName = "System",
+        LastName = "Admin",
+        Email = "admin@test.com",
+        PasswordHash = PasswordSeeder.AdminPassword,
+        DateOfBirth = new DateTime(1990, 1, 1),
+        UserType = "Bank",
+        CreatedDate = DateTime.UtcNow  // ADD THIS LINE
+    }
+    // ... repeat for other users
+); ;
+
+
+            modelBuilder.Entity<Role>().HasData(
+                new Role { RoleId = 1, RoleName = "Admin" },
+                new Role { RoleId = 2, RoleName = "User" },
+                new Role { RoleId = 3, RoleName = "BranchManager" }
+            );
+
+          
+            modelBuilder.Entity<UserRole>().HasData(
+                new UserRole { UserId = 1, RoleId = 1 },  // System Admin has Admin role
+                new UserRole { UserId = 2, RoleId = 2 },  // Normal User has User role
+                new UserRole { UserId = 3, RoleId = 1 },  // Super Combined has both Admin
+                new UserRole { UserId = 3, RoleId = 2 }   // and User roles
+                                                          // UserId 4 (Empty Role) has no roles
+            );
+
 
             //modelBuilder.Entity<Transaction>()
             //    .HasOne(t => t.Account)

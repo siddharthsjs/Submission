@@ -9,6 +9,7 @@ namespace BankCustomerAPI.Services
     public class JwtService
     {
         private readonly IConfiguration _config;
+
         public JwtService(IConfiguration config)
         {
             _config = config;
@@ -23,9 +24,11 @@ namespace BankCustomerAPI.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim("fullname", $"{user.FirstName} {user.LastName}")
+                new Claim("fullname", $"{user.FirstName} {user.LastName}"),
+                new Claim("usertype", user.UserType)
             };
 
+            // Add role claims
             foreach (var role in roles)
                 claims.Add(new Claim(ClaimTypes.Role, role));
 
@@ -38,7 +41,6 @@ namespace BankCustomerAPI.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-      
         public List<string> DecodeRolesFromToken(string token)
         {
             var handler = new JwtSecurityTokenHandler();
