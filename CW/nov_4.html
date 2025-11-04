@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Clock</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eef1f6;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        #clockBtn {
+            background-color: #1e90ff;
+            color: #fff;
+            font-size: 20px;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        #clockBtn:hover {
+            background-color: #1464b8;
+            transform: scale(1.07);
+        }
+    </style>
+</head>
+<body>
+
+    <button id="clockBtn">Loading time...</button>
+
+    <script src="clock.js"></script>
+</body>
+</html>
