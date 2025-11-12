@@ -333,49 +333,49 @@ namespace BankCustomerAPI.Migrations
                         new
                         {
                             UserId = 1,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@test.com",
                             FirstName = "System",
                             IsDeleted = false,
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$Hxzk0osjIDAb6.OyTiF/HOHe59QW60jSewqXzVZVocYHMf7yPpvkW",
+                            PasswordHash = "$2a$11$mf558hnExTM5aanDHQ5tRedxV11O7yLPy.AHNSQH7VIL8YGzcT.RC",
                             UserType = "Bank"
                         },
                         new
                         {
                             UserId = 2,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1995, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@test.com",
                             FirstName = "Normal",
                             IsDeleted = false,
                             LastName = "User",
-                            PasswordHash = "$2a$11$dtuG7PVqckL1dzyiHnqhzeurA845kpZX.Cef7gnbLIz817lq868CC",
+                            PasswordHash = "$2a$11$/hghFa7KbFibfWkxsXHn/.VTdSLcPkrB8WLM8.cX5kW.Pfl1bW2wm",
                             UserType = "Normal"
                         },
                         new
                         {
                             UserId = 3,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(1992, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adminuser@test.com",
                             FirstName = "Super",
                             IsDeleted = false,
                             LastName = "Combined",
-                            PasswordHash = "$2a$11$6HNzfGocSqOpE8O9wWejXOmWL0ZQVPFrOZnFAnCUDmyc367T7GNcu",
+                            PasswordHash = "$2a$11$BZAbE0tpk5iMLrrCLtYy7.Bx.NQu437BdeqQU2rL0GAUFOXYFuXwm",
                             UserType = "Bank"
                         },
                         new
                         {
                             UserId = 4,
-                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             DateOfBirth = new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "nouser@test.com",
                             FirstName = "Empty",
                             IsDeleted = false,
                             LastName = "Role",
-                            PasswordHash = "$2a$11$r1miLpdJM35cg8TnygOPROngouD3OWM1Wjp23vFnuwcpPY0A.hcZm",
+                            PasswordHash = "$2a$11$PSz5T/mypJT32cfjaEyi6OO0B9gxaMBnN4fZqoIcmO7A/r1lRv8B6",
                             UserType = "Normal"
                         });
                 });

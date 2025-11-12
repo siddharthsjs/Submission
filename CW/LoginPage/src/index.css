@@ -1,0 +1,102 @@
+/* ---------- General Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ---------- Grid Center Layout ---------- */
+body {
+  height: 100vh;                    /* full screen height */
+  display: grid;                    /* use CSS Grid */
+  place-items: center;              /* centers horizontally and vertically */
+  background: #f4f6f9;              /* light gray background */
+  color: #333;
+}
+
+/* ---------- Login Page ---------- */
+.login-container {
+  width: 350px;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ---------- Home Page ---------- */
+.home-container {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.home-container nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.home-container nav a:hover {
+  text-decoration: underline;
+}
+
+.logout-btn {
+  margin-top: 20px;
+  padding: 8px 16px;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #b52a35;
+}
+
+/* ---------- Other Pages ---------- */
+.page-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.page-container h2 {
+  margin-bottom: 10px;
+}

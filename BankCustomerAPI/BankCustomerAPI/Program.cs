@@ -1,6 +1,8 @@
 using BankCustomerAPI.Data;
 using BankCustomerAPI.Services;
+using BankCustomerAPI.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -14,6 +16,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Add JWT Service
 builder.Services.AddScoped<JwtService>();
+
+// Add HttpContextAccessor for permission handler
+builder.Services.AddHttpContextAccessor();
+
+// Add Authorization Handler
+builder.Services.AddSingleton<IAuthorizationHandler, PermissionAuthorizationHandler>();
 
 // Configure JWT Authentication
 builder.Services.AddAuthentication(options =>
@@ -35,8 +43,28 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Add Authorization
-builder.Services.AddAuthorization();
+// Add Authorization with Permission Policies
+builder.Services.AddAuthorization(options =>
+{
+    // Define permission-based policies
+    options.AddPolicy("RequireReadUser", policy =>
+        policy.RequirePermission("ReadUser"));
+
+    options.AddPolicy("RequireCreateUser", policy =>
+        policy.RequirePermission("CreateUser"));
+
+    options.AddPolicy("RequireDeleteUser", policy =>
+        policy.RequirePermission("DeleteUser"));
+
+    options.AddPolicy("RequireReadAccount", policy =>
+        policy.RequirePermission("ReadAccount"));
+
+    options.AddPolicy("RequireCreateAccount", policy =>
+        policy.RequirePermission("CreateAccount"));
+
+    options.AddPolicy("RequireDeleteAccount", policy =>
+        policy.RequirePermission("DeleteAccount"));
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
