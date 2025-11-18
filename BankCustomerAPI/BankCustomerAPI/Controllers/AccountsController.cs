@@ -22,7 +22,7 @@ namespace BankCustomerAPI.Controllers
         /// Get all accounts - Requires ReadAccount permission
         /// </summary>
         [HttpGet]
-        [Authorize(Policy = "RequireReadAccount")]
+       [Authorize]
         public async Task<IActionResult> GetAccounts()
         {
             var currentUserId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value);

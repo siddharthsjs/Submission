@@ -196,6 +196,37 @@ namespace BankCustomerAPI.Migrations
                         });
                 });
 
+            modelBuilder.Entity("BankCustomerAPI.Models.RefreshToken", b =>
+                {
+                    b.Property<int>("RefreshTokenId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RefreshTokenId"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRevoked")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RefreshTokenId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens", "training");
+                });
+
             modelBuilder.Entity("BankCustomerAPI.Models.RolePermission", b =>
                 {
                     b.Property<int>("RoleId")
@@ -288,6 +319,49 @@ namespace BankCustomerAPI.Migrations
                         });
                 });
 
+            modelBuilder.Entity("BankCustomerAPI.Models.Transaction", b =>
+                {
+                    b.Property<int>("TransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionId"));
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("BalanceAfter")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("InitiatedByUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ToAccountId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("TransactionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TransactionType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TransactionId");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("InitiatedByUserId");
+
+                    b.ToTable("Transactions", "training");
+                });
+
             modelBuilder.Entity("BankCustomerAPI.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -333,49 +407,49 @@ namespace BankCustomerAPI.Migrations
                         new
                         {
                             UserId = 1,
-                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@test.com",
                             FirstName = "System",
                             IsDeleted = false,
                             LastName = "Admin",
-                            PasswordHash = "$2a$11$mf558hnExTM5aanDHQ5tRedxV11O7yLPy.AHNSQH7VIL8YGzcT.RC",
+                            PasswordHash = "$2a$11$qt/JJDd4PqgLSO60rsGiCe1kYVXukEPOsFzevfxtRY18gd/63i4Km",
                             UserType = "Bank"
                         },
                         new
                         {
                             UserId = 2,
-                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             DateOfBirth = new DateTime(1995, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "user@test.com",
                             FirstName = "Normal",
                             IsDeleted = false,
                             LastName = "User",
-                            PasswordHash = "$2a$11$/hghFa7KbFibfWkxsXHn/.VTdSLcPkrB8WLM8.cX5kW.Pfl1bW2wm",
+                            PasswordHash = "$2a$11$xeSYHpZ4y6gt/m.9SJUOu.sf197Jir6tRZOuKYr8hcTuOSLqyKAEq",
                             UserType = "Normal"
                         },
                         new
                         {
                             UserId = 3,
-                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             DateOfBirth = new DateTime(1992, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adminuser@test.com",
                             FirstName = "Super",
                             IsDeleted = false,
                             LastName = "Combined",
-                            PasswordHash = "$2a$11$BZAbE0tpk5iMLrrCLtYy7.Bx.NQu437BdeqQU2rL0GAUFOXYFuXwm",
+                            PasswordHash = "$2a$11$cp2Rn8eu8dm./uQqAL6kAu6J6Sg5TPE8RyEhltw7z88kzIsMlwUEm",
                             UserType = "Bank"
                         },
                         new
                         {
                             UserId = 4,
-                            CreatedDate = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedDate = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             DateOfBirth = new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "nouser@test.com",
                             FirstName = "Empty",
                             IsDeleted = false,
                             LastName = "Role",
-                            PasswordHash = "$2a$11$PSz5T/mypJT32cfjaEyi6OO0B9gxaMBnN4fZqoIcmO7A/r1lRv8B6",
+                            PasswordHash = "$2a$11$4rn1xrAXwuyKMl.1cExEW.u6b8etYvIXBZ/.lHOyVv8lreoyi5iUy",
                             UserType = "Normal"
                         });
                 });
@@ -495,6 +569,17 @@ namespace BankCustomerAPI.Migrations
                     b.Navigation("Manager");
                 });
 
+            modelBuilder.Entity("BankCustomerAPI.Models.RefreshToken", b =>
+                {
+                    b.HasOne("BankCustomerAPI.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("BankCustomerAPI.Models.RolePermission", b =>
                 {
                     b.HasOne("BankCustomerAPI.Models.Permission", "Permission")
@@ -514,6 +599,25 @@ namespace BankCustomerAPI.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("BankCustomerAPI.Models.Transaction", b =>
+                {
+                    b.HasOne("BankCustomerAPI.Models.Account", "Account")
+                        .WithMany("Transactions")
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BankCustomerAPI.Models.User", "InitiatedBy")
+                        .WithMany()
+                        .HasForeignKey("InitiatedByUserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+
+                    b.Navigation("InitiatedBy");
+                });
+
             modelBuilder.Entity("BankCustomerAPI.Models.UserRole", b =>
                 {
                     b.HasOne("Role", "Role")
@@ -531,6 +635,11 @@ namespace BankCustomerAPI.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BankCustomerAPI.Models.Account", b =>
+                {
+                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("BankCustomerAPI.Models.Bank", b =>
