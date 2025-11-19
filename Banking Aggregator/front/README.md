@@ -1,36 +1,12 @@
 # Flux Banking Aggregator (React + Vite)
 
-Front-end for the **BankCustomerAPI** backend (`/backend/ProjectFullStack/BankCustomerAPI/BankCustomerAPI`).  
-Implements login/logout, JWT refresh + verify, role-based navigation, and sysadmin dashboards for users/banks.  
-Regular users can view paginated accounts, run deposits/withdrawals/transfers, and browse transactions with filters.  
-Marketing pages (Landing, About, Plans, FAQ, Contact) showcase image galleries, cards, forms, and newsletter signups.
-
 ## Tech stack
 
-- React 19 + Vite 7 (dev server pinned to port `3000` to align with backend CORS)
-- Tailwind CSS via PostCSS (semantic HTML5 sections, CSS Grid/Flexbox layouts)
+- React 19 + Vite 7 
+- Tailwind CSS via PostCSS 
 - React Router 7 for routing & protected routes
 - Axios-less fetch helper with refresh-aware `useApi` hook
 - Contexts: `AuthContext` (JWT/session) + `BankingDataContext` (accounts, transactions, banks, branches, users)
-
-## Getting started
-
-```bash
-npm install
-npm run dev
-```
-
-Environment variables:
-
-| Key             | Default                | Description                                      |
-| --------------- | --------------------- | ------------------------------------------------ |
-| `VITE_API_URL`  | `http://localhost:5230` | Base URL for the C# backend (`/api` is appended) |
-
-When running locally:
-
-1. Start **BankCustomerAPI** (Kestrel profile) -> `http://localhost:5230`.
-2. Ensure seed data/roles exist (see backend repo).
-3. Run `npm run dev` (Vite serves on `http://localhost:3000`, matching backend CORS allowlist).
 
 ## Pages & features
 
